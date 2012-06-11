@@ -18,7 +18,7 @@ Configure a facebook application
 * Download zip file from gitHub here: https://github.com/djepo/TemplateViergeSymfony2/zipball/master
 * Unzip it where you want
 * Install Vendors:
-```bash
+```
 php bin/vendors install
 ```
 
