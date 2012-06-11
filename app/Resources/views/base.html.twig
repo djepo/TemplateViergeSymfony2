@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{{websiteName}} | {{websiteSlogan}}{% endblock %}</title>
         {% block stylesheets %}
             <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/style.css')}}" type="text/css" rel="stylesheet">
             <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/css/kickstart.css')}}" type="text/css" rel="stylesheet">
@@ -30,7 +30,14 @@
 
             {% block body %}{% endblock %}
 
-            {% block javascripts %}{% endblock %}
+            <div id="footer">                
+                &copy; Copyright {%if "now"|date("Y")== websiteBirthYear %}{{websiteBirthYear}}{%else%}{{websiteBirthYear}}&ndash;{{"now"|date("Y")}}{%endif%} All Rights Reserved.</br>
+                This website is powered with <a href="http://symfony.com/">Symfony 2</a> using <a href="http://www.99lime.com/">HTMLKickStart</a> for templating, <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUser</a> and <a href="https://github.com/FriendsOfSymfony/FOSFacebookBundle">FOSFacebook</a> bundles for user management.</br>
+                <a href="https://github.com/djepo/TemplateViergeSymfony2">Base template</a> by <a href="http://djepo.craym.eu">CAILBAUT Olivier</a> aka djepo.
+            </div>
         </div>
+        
+        {% block javascripts %}{% endblock %}
+        
     </body>
 </html>

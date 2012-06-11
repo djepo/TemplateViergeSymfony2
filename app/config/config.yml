@@ -32,8 +32,9 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     globals:
-        websiteName: %websiteName%
-        websiteSlogan: %websiteSlogan%
+        websiteName:      %websiteName%
+        websiteSlogan:    %websiteSlogan%
+        websiteBirthYear: %websiteBirthYear%
 
 # Assetic Configuration
 assetic:

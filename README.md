@@ -74,8 +74,9 @@ Modify app/config/websiteParameters.ini and update parameters to match with your
 ```ini
 ; Website parameters
 [parameters]    
-    websiteName =   "Your Title Here"
-    websiteSlogan = "Your Slogan Here"
+    websiteName =       "Your Title Here"
+    websiteSlogan =     "Your Slogan Here"
+    websiteBirthYear=   "2012"
 ```
 
 ## Ready !
