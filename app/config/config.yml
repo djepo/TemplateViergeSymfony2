@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.ini }
     - { resource: facebookParameters.ini }
+    - { resource: websiteParameters.ini }
     - { resource: security.yml }
     
 services:
@@ -30,6 +31,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        websiteName: %websiteName%
+        websiteSlogan: %websiteSlogan%
 
 # Assetic Configuration
 assetic:

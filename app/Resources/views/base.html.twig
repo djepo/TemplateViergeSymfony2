@@ -4,25 +4,32 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            <link media="all" href="{{asset('bundles/coMain/css/KickStart/style.css')}}" type="text/css" rel="stylesheet">
-            <link media="all" href="{{asset('bundles/coMain/css/KickStart/css/kickstart.css')}}" type="text/css" rel="stylesheet">
+            <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/style.css')}}" type="text/css" rel="stylesheet">
+            <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/css/kickstart.css')}}" type="text/css" rel="stylesheet">
         {% endblock %}
         {% block header_javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-            <script src="{{asset('bundles/coMain/js/prettify.js')}}" type="text/javascript"></script>
-            <script src="{{asset('bundles/coMain/js/kickstart.js')}}" type="text/javascript"></script>
+            <script src="{{asset('bundles/djepoMain/js/prettify.js')}}" type="text/javascript"></script>
+            <script src="{{asset('bundles/djepoMain/js/kickstart.js')}}" type="text/javascript"></script>
         {% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>            
-        {% for key, message in app.session.getFlashes() %}
-            <div class="{{ key }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
+    <body>
+        <a id="top-of-page"></a>
+        <div id="wrap" class="clearfix">
+            <div id="websiteHeader">
+                <h1 id="websiteName">{{websiteName}}</h1>
+                <h6 id="websiteSlogan">{{websiteSlogan}}</h6>
             </div>
-        {% endfor %}
-            
-        {% block body %}{% endblock %}
-            
-        {% block javascripts %}{% endblock %}
+            {% for key, message in app.session.getFlashes() %}
+                <div class="{{ key }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}            
+
+            {% block body %}{% endblock %}
+
+            {% block javascripts %}{% endblock %}
+        </div>
     </body>
 </html>
