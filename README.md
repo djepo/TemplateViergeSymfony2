@@ -14,8 +14,16 @@ You are free to drop it if you don't use it.
 You'll have to remove css and javascript links in app/Resources/views/base.html.twig if you remove it.
 
 ## Prerequisites
-Configure a facebook application
-> TODO: implement a short tutorial
+A Facebook Application
+
+### Create A facebook application
+Navigate to: https://developers.facebook.com/apps
+Click on "Create an application" on the top right side
+Enter a name for your application
+Navigate to Application parameters, go in "essentials" (the first entry)
+Click on "Website with Facebook Login"
+Enter your Website's URL
+Save Modifications
 
 ## Installation
 ### Download and install the package
