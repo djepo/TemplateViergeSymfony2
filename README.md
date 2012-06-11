@@ -18,6 +18,7 @@ What you have to do:
 php bin/vendors install
 ```
 * update configuration files:
+** Parameters.ini to match your own database (or eventually you can run the symfony's config.php script)
 
 * create your database (if not created yet): php app/console doctrine:database:create
 * Update database: php app/console doctrine:schema:update --force
