@@ -15,8 +15,8 @@ security:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
             fos_facebook:
-                app_url: "http://apps.facebook.com/263778820386586/"    #adresse de l'applicaiton facebook
-                server_url: "http://localhost/TemplateViergeSymfony2/"      #adresse du site
+                app_url: "http://apps.facebook.com/263778820386586/"        #Your facebook's application url
+                server_url: "http://localhost/TemplateViergeSymfony2/"      #Your website url as configured in your facebook application
                 login_path: /login
                 check_path: /login_fb_check
                 default_target_path: /

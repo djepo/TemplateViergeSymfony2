@@ -76,7 +76,7 @@ fos_user:
 fos_facebook:
       file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
       alias:  facebook
-      app_id: 263778820386586                        #placer l'identifiant de votre application facebook ici
-      secret: 2f1efc68065669b14fedd5676d9e1672       #placer le code de votre application facebook ici
+      app_id: 263778820386586                        #Your facebook's app id here
+      secret: 2f1efc68065669b14fedd5676d9e1672       #Your facebook's secret here
       cookie: true
       permissions: [email]
