@@ -9,13 +9,17 @@ Users can register and login traditionnaly with FOSUserBundle, and also Register
 If a Facebook User doesn't exists in database, it is added.
 If a Facebook user's email exists in database (case of an manually previous regitered user), facebook informations are added.
 
+This projects includes CSS and javascripts from [HTMLKickStart](http://www.99lime.com/) to have a nice render at start.
+You are free to drop it if you don't use it.
+You'll have to remove css and javascript links in app/Resources/views/base.html.twig if you remove it.
+
 ## Prerequisites
 Configure a facebook application
 > TODO: implement a short tutorial
 
 ## Installation
 ### Download and install the package
-* Download zip file from gitHub here: https://github.com/djepo/TemplateViergeSymfony2/zipball/master
+* Download zip file from gitHub [here](https://github.com/djepo/TemplateViergeSymfony2/zipball/master)
 * Unzip it where you want
 * Install Vendors:
 
@@ -52,3 +56,6 @@ php app/console doctrine:database:create
 ```bash
 php app/console doctrine:schema:update --force
 ```
+
+## Ready !
+You can now use this project as a normal symfony 2 project.
