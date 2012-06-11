@@ -27,14 +27,14 @@ php bin/vendors install
 * app/config/config.yml to match with your facebook application
 ``` yaml
 fos_facebook:
-        app_id: 123456789101112                        #Your facebook's app id here
-        secret: 12a3b546e87d9fb2a16d68f12c6e451b       #Your facebook's secret here
+    app_id: 123456789101112                        #Your facebook's app id here
+    secret: 12a3b546e87d9fb2a16d68f12c6e451b       #Your facebook's secret here
 ```
 * app/config/security.yml to match with your facebook application
 ``` yaml
 fos_facebook:
-        app_url: "http://apps.facebook.com/263778820386586/"        #Your facebook's application url
-        server_url: "http://localhost/TemplateViergeSymfony2/"      #Your website url as configured in your facebook application
+    app_url: "http://apps.facebook.com/263778820386586/"        #Your facebook's application url
+    server_url: "http://localhost/TemplateViergeSymfony2/"      #Your website url as configured in your facebook application
 ```
 
 ### Create and/or update your database
