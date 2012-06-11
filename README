@@ -1,8 +1,0 @@
-This Repository contains an empty symfony 2 project.
-
-This project is a good start to create a website, because it contains FOSUser and FOSFacebook Bundles.
-Those Bundles are working together to manage users on a website.
-
-Users can register and login traditionnaly with FOSUserBundle, and also Registering and login with Facebook.
-If a Facebook User doesn't exists in database, it is added.
-If a Facebook user's email exists in database (case of an manually previous regitered user), facebook informations are added.
