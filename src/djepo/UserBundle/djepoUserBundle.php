@@ -1,10 +1,10 @@
 <?php
 
-namespace co\UserBundle;
+namespace djepo\UserBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class coUserBundle extends Bundle
+class djepoUserBundle extends Bundle
 {
     public function getParent()
     {

@@ -1,0 +1,44 @@
+{% extends "djepoUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+    {% if error %}
+        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+        <input type="password" id="password" name="_password" />
+
+        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+        {{ facebook_login_button({'autologoutlink': true}) }}
+    </form>
+        
+        
+    <script>
+        function goLogIn(){
+            window.location = "{{ path('_security_check') }}";
+        }
+
+        function onFbInit() {
+            if (typeof(FB) != 'undefined' && FB != null ) {
+                FB.Event.subscribe('auth.statusChange', function(response) {
+                    if (response.session || response.authResponse) {
+                        setTimeout(goLogIn, 500);
+                    } else {
+                        window.location = "{{ path('_security_logout') }}";
+                    }
+                });
+            }
+        }
+    </script>
+{% endblock fos_user_content %}
+

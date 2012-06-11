@@ -1,6 +1,6 @@
 <?php
 
-namespace co\UserBundle\Tests\Controller;
+namespace djepo\MainBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

@@ -1,10 +1,10 @@
 coUserBundle:
-    resource: "@coUserBundle/Controller/"
+    resource: "@djepoUserBundle/Controller/"
     type:     annotation
     prefix:   /
 
 coMainBundle:
-    resource: "@coMainBundle/Controller/"
+    resource: "@djepoMainBundle/Controller/"
     type:     annotation
     prefix:   /
     

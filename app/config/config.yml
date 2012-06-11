@@ -4,7 +4,7 @@ imports:
     
 services:
     my.facebook.user:
-        class: co\UserBundle\Security\User\Provider\FacebookProvider
+        class: djepo\UserBundle\Security\User\Provider\FacebookProvider
         arguments:
             facebook: "@fos_facebook.api"
             userManager: "@fos_user.user_manager"
@@ -71,7 +71,7 @@ jms_security_extra:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: co\UserBundle\Entity\User
+    user_class: djepo\UserBundle\Entity\User
     
 fos_facebook:
       file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php

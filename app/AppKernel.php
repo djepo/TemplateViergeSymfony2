@@ -19,8 +19,8 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\FacebookBundle\FOSFacebookBundle(),
-            new co\MainBundle\coMainBundle(),
-            new co\UserBundle\coUserBundle(),
+            new djepo\MainBundle\djepoMainBundle(),
+            new djepo\UserBundle\djepoUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {            

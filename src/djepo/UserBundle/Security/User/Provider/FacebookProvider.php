@@ -1,6 +1,6 @@
 <?php
 
-namespace co\UserBundle\Security\User\Provider;
+namespace djepo\UserBundle\Security\User\Provider;
 
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
