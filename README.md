@@ -36,10 +36,13 @@ php bin/vendors install
 [parameters]
     ;Enter your facebook App Id here
     facebookAppID =     "263778820386586"
+
     ;Enter your facebook App secret here
     facebookAppSecret=  "2f1efc68065669b14fedd5676d9e1672"
+
     ;Enter your facebook App url here
     facebookAppUrl=     "http://apps.facebook.com/263778820386586/"
+
     ;Enter your facebook server url here, as configured in your facebook app    
     facebookServerUrl=  "http://localhost/TemplateViergeSymfony2/"
 ```
