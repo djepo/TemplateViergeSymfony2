@@ -17,13 +17,13 @@ You'll have to remove css and javascript links in app/Resources/views/base.html.
 A Facebook Application properly configured.
 
 > ### How to Create A facebook application (Quick mode !)
-> Navigate to: https://developers.facebook.com/apps
-> Click on "Create an application" on the top right side
-> Enter a name for your application
-> Navigate to Application parameters, go in "essentials" (the first entry)
-> Click on "Website with Facebook Login"
-> Enter your Website's URL
-> Save Modifications
+> 1. Navigate to: https://developers.facebook.com/apps.
+> 2. Click on "Create an application" on the top right side.
+> 3. Enter a name for your application.
+> 4. Navigate to Application parameters, go in "essentials" (the first entry).
+> 5. Click on "Website with Facebook Login".
+> 6. Enter your Website's URL.
+> 7. Save Modifications.
 
 ## Installation
 ### Download and install the package
