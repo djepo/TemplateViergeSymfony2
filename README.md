@@ -68,5 +68,15 @@ php app/console doctrine:database:create
 php app/console doctrine:schema:update --force
 ```
 
+## Modify your website's name and slogan
+Modify app/config/websiteParameters.ini and update parameters to match with your website
+
+```ini
+; Website parameters
+[parameters]    
+    websiteName =   "Your Title Here"
+    websiteSlogan = "Your Slogan Here"
+```
+
 ## Ready !
 You can now use this project as a normal symfony 2 project.
