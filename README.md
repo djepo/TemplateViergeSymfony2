@@ -35,5 +35,5 @@ fos_facebook:
       permissions: [email]
 ```
 
-* create your database (if not created yet): php app/console doctrine:database:create
-* Update database: php app/console doctrine:schema:update --force
+* create your database (if not created yet): ``` php app/console doctrine:database:create```
+* Update database: ```php app/console doctrine:schema:update --force```
