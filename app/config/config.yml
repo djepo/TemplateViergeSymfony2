@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.ini }
+    - { resource: facebookParameters.ini }
     - { resource: security.yml }
     
 services:
@@ -76,7 +77,7 @@ fos_user:
 fos_facebook:
       file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
       alias:  facebook
-      app_id: 263778820386586                        #Your facebook's app id here
-      secret: 2f1efc68065669b14fedd5676d9e1672       #Your facebook's secret here
+      app_id: %facebookAppId%
+      secret: %facebookAppSecret%
       cookie: true
       permissions: [email]

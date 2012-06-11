@@ -29,19 +29,15 @@ php bin/vendors install
 
 ### update your configuration files:
 * app/config/parameters.ini to match your own database (or eventually you can run the symfony's config.php script)
-* app/config/config.yml to match with your facebook application
+* app/config/facebookParameters.ini to match with your facebook application
 
-```yaml
-fos_facebook:
-    app_id: 123456789101112                        #Your facebook's app id here
-    secret: 12a3b546e87d9fb2a16d68f12c6e451b       #Your facebook's secret here
-```
-* app/config/security.yml to match with your facebook application
-
-```yaml
-fos_facebook:
-    app_url: "http://apps.facebook.com/263778820386586/"        #Your facebook's application url
-    server_url: "http://localhost/TemplateViergeSymfony2/"      #Your website url as configured in your facebook application
+```ini
+; Facebook parameters for FOSFacebookBundle
+[parameters]
+    facebookAppID =     "263778820386586"                           ;Enter your facebook App Id here
+    facebookAppSecret=  "2f1efc68065669b14fedd5676d9e1672"          ;Enter your facebook App secret here
+    facebookAppUrl=     "http://apps.facebook.com/263778820386586/" ;Enter your facebook App url here
+    facebookServerUrl=  "http://localhost/TemplateViergeSymfony2/"  ;Enter your facebook server url here, as configured in your facebook app
 ```
 
 ### Create and/or update your database
