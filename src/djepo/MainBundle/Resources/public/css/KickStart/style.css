@@ -76,6 +76,11 @@ margin:-1px -1px 0 -1px;
     font-weight: normal;
 }
 
+#websiteHeader a{
+    text-decoration: none;
+    color: inherit;
+}
+
 #footer{
 text-align:center;
 padding:20px;

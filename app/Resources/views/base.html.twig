@@ -16,11 +16,11 @@
     </head>
     <body>
         <a id="top-of-page"></a>
-        <div id="wrap" class="clearfix">
-            <div id="websiteHeader">
-                <h1 id="websiteName">{{websiteName}}</h1>
-                <h6 id="websiteSlogan">{{websiteSlogan}}</h6>
-            </div>
+        <div id="wrap" class="clearfix">            
+            <div id="websiteHeader">                
+                <h1 id="websiteName"><a href="{{ path('homepage')}}">{{websiteName}}</a></h1>
+                <h6 id="websiteSlogan"><a href="{{ path('homepage')}}">{{websiteSlogan}}</a></h6>                
+            </div>            
                 
             {% for key, message in app.session.getFlashes() %}
                 <div class="{{ key }}">
