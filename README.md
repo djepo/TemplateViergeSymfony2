@@ -68,15 +68,21 @@ php app/console doctrine:database:create
 php app/console doctrine:schema:update --force
 ```
 
-## Modify your website's name and slogan
+## Modify your website's parameters
 Modify app/config/websiteParameters.ini and update parameters to match with your website
 
 ```ini
 ; Website parameters
-[parameters]    
+[parameters]
+
     websiteName =       "Your Title Here"
+
     websiteSlogan =     "Your Slogan Here"
+
     websiteBirthYear=   "2012"
+
+    websiteUseFacebookLogin=    true
+
 ```
 
 ## Ready !
