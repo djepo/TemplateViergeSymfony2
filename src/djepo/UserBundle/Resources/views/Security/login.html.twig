@@ -1,7 +1,27 @@
 {% extends "djepoUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-{{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+    {% if websiteUseFacebookLogin %}
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();'}) }}
+        <script>
+            function goLogIn(){
+                window.location = "{{ path('_security_check') }}";
+            }
+
+            function onFbInit() {
+                if (typeof(FB) != 'undefined' && FB != null ) {
+                    FB.Event.subscribe('auth.statusChange', function(response) {
+                        if (response.session || response.authResponse) {
+                            setTimeout(goLogIn, 500);
+                        } else {
+                            window.location = "{{ path('_security_logout') }}";
+                        }
+                    });
+                }
+            }
+        </script>
+    {% endif %}
+
     {% if error %}
         <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
     {% endif %}
@@ -18,27 +38,14 @@
         <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
         <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 
-        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-        {{ facebook_login_button({'autologoutlink': true}) }}
+        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />        
     </form>
         
+    <div id="social_login">
+        {% if websiteUseFacebookLogin %}        
+            {{ facebook_login_button({'autologoutlink': true}) }}
+        {% endif %}
+    </div>
         
-    <script>
-        function goLogIn(){
-            window.location = "{{ path('_security_check') }}";
-        }
-
-        function onFbInit() {
-            if (typeof(FB) != 'undefined' && FB != null ) {
-                FB.Event.subscribe('auth.statusChange', function(response) {
-                    if (response.session || response.authResponse) {
-                        setTimeout(goLogIn, 500);
-                    } else {
-                        window.location = "{{ path('_security_logout') }}";
-                    }
-                });
-            }
-        }
-    </script>
 {% endblock fos_user_content %}
 
