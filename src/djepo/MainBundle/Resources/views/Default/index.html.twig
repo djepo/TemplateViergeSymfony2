@@ -8,4 +8,29 @@
     {% else %}
         <a href="{{path('fos_user_security_login')}}">Login</a>
     {% endif %}
+    <p>
+        This is the default homepage.
+    </p>
+    <p>
+        The main goal of this template is to integrate FOSUser and FOSFacebook bundles working together and properly configured.
+        Watch the documentation <a href="https://github.com/djepo/TemplateViergeSymfony2/blob/master/README.md">here</a>.
+    </p>
+    <p>
+        Feel free to modify the CSS, all the templating shown here is only an example.
+        To reset this, remove the folowing folders:
+    </p>
+        <ul>
+            <li>src/djepo/Resources/public/css</li>
+            <li>src/djepo/Resources/public/js</li>
+            <li>web/bundles/djepomain/css</li>
+            <li>web/bundles/djepomain/js</li>
+        </ul>
+    <p>
+        Then, modify app/Resources/views/base.html.twig links to CSS and JS files.
+        You can also remove JQuery if you want, and integrate your own Javascripts framework.
+    </p>
+    <p>
+        For all the work, this is a Symfony 2 template !
+        Check tutorials over the Web to learn how to use it, this is only a start template ;)
+    </p>
 {% endblock %}
