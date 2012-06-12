@@ -53,6 +53,10 @@ php bin/vendors install
 
     ;Enter your facebook server url here, as configured in your facebook app    
     facebookServerUrl=  "http://localhost/TemplateViergeSymfony2/"
+
+    ;Enter locale here (for language on the login button). Enter for exemple en_US for english, fr_FR for french etc...
+    ;See https://www.facebook.com/translations/FacebookLocales.xml for the whole list of locales
+    facebookLocale=    "en_US"
 ```
 
 ### Create and/or update your database

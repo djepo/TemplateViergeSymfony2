@@ -36,6 +36,7 @@ twig:
         websiteSlogan:           %websiteSlogan%
         websiteBirthYear:        %websiteBirthYear%
         websiteUseFacebookLogin: %websiteUseFacebookLogin%
+        facebookLocale:         %facebookLocale%
 
 # Assetic Configuration
 assetic:
