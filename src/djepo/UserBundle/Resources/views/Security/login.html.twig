@@ -23,7 +23,11 @@
     {% endif %}
 
     {% if error %}
-        <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+        <div class="notice error">
+            <span class="icon medium" data-icon="X" style="display: inline-block;"></span>            
+            {{ error|trans({}, 'FOSUserBundle') }}
+            <a class="icon close" data-icon="x" href="#close" style="display: inline-block;"></a>
+        </div>
     {% endif %}
 
     <form action="{{ path("fos_user_security_check") }}" method="post">
