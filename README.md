@@ -32,7 +32,7 @@ A Facebook Application properly configured.
 * Install Vendors:
 
 ```bash
-php bin/vendors install
+php composer.phar install
 ```
 
 ### update your configuration files:
