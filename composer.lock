@@ -38,8 +38,8 @@
         {
             "package": "friendsofsymfony/user-bundle",
             "version": "dev-master",
-            "source-reference": "bf76b64cb271b71852f877a461a14c5f0312dc7d",
-            "commit-date": "1341691567"
+            "source-reference": "59220fc32c32b29e766b6f55ab788ddb036aa9b0",
+            "commit-date": "1341756982"
         },
         {
             "package": "jms/aop-bundle",
@@ -104,8 +104,8 @@
         {
             "package": "swiftmailer/swiftmailer",
             "version": "dev-master",
-            "source-reference": "1829c40b70f3fc45a3696349bfcb99fb755aa926",
-            "commit-date": "1341418063"
+            "source-reference": "f51b5f33c83b48faea75f1285f99a2e8f1c66f75",
+            "commit-date": "1341746460"
         },
         {
             "package": "symfony/assetic-bundle",
@@ -124,12 +124,6 @@
             "version": "dev-master",
             "source-reference": "e1d413ce27fd1696bdc82ad9525f1b874664530e",
             "commit-date": "1341509614"
-        },
-        {
-            "package": "symfony/symfony",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
         },
         {
             "package": "symfony/symfony",
@@ -166,7 +160,7 @@
     "aliases": [
 
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": {
         "doctrine/doctrine-bundle": 20,
         "twig/extensions": 20,
