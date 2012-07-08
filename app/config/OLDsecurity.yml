@@ -1,13 +1,9 @@
 imports:    
-    - { resource: facebookParameters.ini }
-
-jms_security_extra:
-    secure_all_services: false
-    expressions: true
-
+    - { resource: facebookParameters.ini }    
+    
 security:
-    #factories:
-    #    - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
+    factories:
+        - "%kernel.root_dir%/../vendor/bundles/FOS/FacebookBundle/Resources/config/security_factories.xml"
     providers:
         my_fos_facebook_provider:
             id: my.facebook.user            
