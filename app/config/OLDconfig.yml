@@ -1,8 +1,8 @@
 imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
+    - { resource: parameters.ini }
     - { resource: facebookParameters.ini }
     - { resource: websiteParameters.ini }
+    - { resource: security.yml }
     
 services:
     my.facebook.user:
@@ -17,17 +17,15 @@ framework:
     #esi:             ~
     translator:      { fallback: %locale% }
     secret:          %secret%
-    #charset:         UTF-8
-    router:
-        resource: "%kernel.root_dir%/config/routing.yml"
-        strict_parameters: %kernel.debug%
+    charset:         UTF-8
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
     form:            true
     csrf_protection: true
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
     session:
-        #auto_start:     true
+        default_locale: %locale%
+        auto_start:     true
 
 # Twig Configuration
 twig:
@@ -38,20 +36,19 @@ twig:
         websiteSlogan:           %websiteSlogan%
         websiteBirthYear:        %websiteBirthYear%
         websiteUseFacebookLogin: %websiteUseFacebookLogin%
-        facebookLocale:          %facebookLocale%
+        facebookLocale:         %facebookLocale%
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
-    #java: /usr/bin/java
+    # java: /usr/bin/java
     filters:
         cssrewrite: ~
-        #closure:
-        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
-        #yui_css:
-        #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
+        # closure:
+        #     jar: %kernel.root_dir%/java/compiler.jar
+        # yui_css:
+        #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
 
 # Doctrine Configuration
 doctrine:
@@ -62,7 +59,7 @@ doctrine:
         dbname:   %database_name%
         user:     %database_user%
         password: %database_password%
-        #charset:  UTF8
+        charset:  UTF8
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
@@ -74,7 +71,10 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
-    spool:     { type: memory }
+
+jms_security_extra:
+    secure_controllers:  true
+    secure_all_services: false
     
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
@@ -82,9 +82,9 @@ fos_user:
     user_class: djepo\UserBundle\Entity\User
     
 fos_facebook:
-      file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
+      file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
       alias:  facebook
       app_id: %facebookAppId%
       secret: %facebookAppSecret%
       cookie: true
-      permissions: [email]    
+      permissions: [email]
