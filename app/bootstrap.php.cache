@@ -1463,8 +1463,12 @@ class HttpKernel implements HttpKernelInterface, TerminableInterface
 
         $response = $event->getResponse();
 
-                if (!$response->isClientError() && !$response->isServerError() && !$response->isRedirect()) {
-            if ($e instanceof HttpExceptionInterface) {
+                if ($response->headers->has('X-Status-Code')) {
+            $response->setStatusCode($response->headers->get('X-Status-Code'));
+
+            $response->headers->remove('X-Status-Code');
+        } elseif (!$response->isClientError() && !$response->isServerError() && !$response->isRedirect()) {
+                        if ($e instanceof HttpExceptionInterface) {
                                 $response->setStatusCode($e->getStatusCode());
                 $response->headers->add($e->getHeaders());
             } else {
