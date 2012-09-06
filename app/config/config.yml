@@ -16,8 +16,7 @@ services:
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
-    secret:          %secret%
-    #charset:         UTF-8
+    secret:          %secret%    
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
@@ -27,8 +26,7 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  %locale%
     trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~
-        #auto_start:     true
+    session:         ~        
 
 # Twig Configuration
 twig:
