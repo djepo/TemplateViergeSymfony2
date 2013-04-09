@@ -33,7 +33,7 @@ class User extends BaseUser
      * @var string
      * @ORM\Column(type="string", nullable=true)
      */
-    protected $facebookID;
+    protected $facebookId;
 
     public function __construct()
     {
@@ -43,12 +43,12 @@ class User extends BaseUser
     
     public function serialize()
     {
-        return serialize(array($this->facebookID, parent::serialize()));
+        return serialize(array($this->facebookId, parent::serialize()));
     }
 
     public function unserialize($data)
     {
-        list($this->facebookID, $parentData) = unserialize($data);
+        list($this->facebookId, $parentData) = unserialize($data);
         parent::unserialize($parentData);
     }
     
@@ -99,7 +99,7 @@ class User extends BaseUser
      */
     public function setFacebookID($facebookID=null)
     {
-        $this->facebookID = $facebookID;        
+        $this->facebookId = $facebookID;        
         if ($this->username=="")    //si on n'a pas de username
         {
             //on met le facebook id a la place
@@ -113,7 +113,7 @@ class User extends BaseUser
      */
     public function getFacebookID()
     {
-        return $this->facebookID;
+        return $this->facebookId;
     }
 
     /**

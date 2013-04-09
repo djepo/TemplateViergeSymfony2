@@ -1,0 +1,30 @@
+#wrap{
+width:960px;
+}
+
+#websiteHeader{
+    background: none repeat scroll 0 0 #657AA6;
+    /*height: 100%;*/
+    /*width: 100%;*/
+}
+
+#websiteHeader #websiteName {
+    margin: 0 0;
+}
+
+#websiteHeader #websiteSlogan {
+    margin-top: -10px;
+    font-weight: normal;
+}
+
+#websiteHeader a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#social_login{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}

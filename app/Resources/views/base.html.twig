@@ -3,30 +3,41 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}{{websiteName}} | {{websiteSlogan}}{% endblock %}</title>
-        {% block stylesheets %}
-            <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/style.css')}}" type="text/css" rel="stylesheet">
-            <link media="all" href="{{asset('bundles/djepoMain/css/KickStart/css/kickstart.css')}}" type="text/css" rel="stylesheet">
+        {% block stylesheets %}        
+            <link media="all" href="{{asset('bundles/djepokickstart/style.css')}}" type="text/css" rel="stylesheet">
+            <link media="all" href="{{asset('bundles/djepokickstart/css/kickstart.css')}}" type="text/css" rel="stylesheet">
+            <link media="all" href="{{asset('bundles/djepomain/css/style.css')}}" type="text/css" rel="stylesheet">
         {% endblock %}
         {% block header_javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
-            <script src="{{asset('bundles/djepoMain/js/prettify.js')}}" type="text/javascript"></script>
-            <script src="{{asset('bundles/djepoMain/js/kickstart.js')}}" type="text/javascript"></script>
+            <script src="{{asset('bundles/djepoKickStart/js/prettify.js')}}" type="text/javascript"></script>
+            <script src="{{asset('bundles/djepoKickStart/js/kickstart.js')}}" type="text/javascript"></script>        
         {% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <a id="top-of-page"></a>
         <div id="wrap" class="clearfix">            
-            <div id="websiteHeader">                
+            <div id="websiteHeader" class="callout callout-top clearfix">                
                 <h1 id="websiteName"><a href="{{ path('homepage')}}">{{websiteName}}</a></h1>
                 <h6 id="websiteSlogan"><a href="{{ path('homepage')}}">{{websiteSlogan}}</a></h6>                
             </div>            
                 
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for key, message in messages %}
+                    <div class="notice {{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}            
+
+            {#
             {% for key, message in app.session.getFlashes() %}
-                <div class="{{ key }}">
+                <div class="notice {{ key }}">
                     {{ message|trans({}, 'FOSUserBundle') }}
                 </div>
             {% endfor %}            
+            #}
 
             {% block body %}{% endblock %}
 
@@ -34,7 +45,7 @@
                 &copy; Copyright {%if "now"|date("Y")== websiteBirthYear %}{{websiteBirthYear}}{%else%}{{websiteBirthYear}}&ndash;{{"now"|date("Y")}}{%endif%} All Rights Reserved.</br>
                 This website is powered with <a href="http://symfony.com/">Symfony 2</a> using <a href="http://www.99lime.com/">HTMLKickStart</a> for templating, <a href="https://github.com/FriendsOfSymfony/FOSUserBundle">FOSUser</a> and <a href="https://github.com/FriendsOfSymfony/FOSFacebookBundle">FOSFacebook</a> bundles for user management.</br>
                 <a href="https://github.com/djepo/TemplateViergeSymfony2">Base template</a> by <a href="http://djepo.craym.eu">CAILBAUT Olivier</a> aka djepo.
-                <a id="link-top" href="#top-of-page">Top</a>
+                {#<a id="link-top" href="#top-of-page">Top</a>#}
             </div>
         </div>
         

@@ -32,29 +32,34 @@ class FacebookProvider implements UserProviderInterface
 
     public function findUserByFbId($fbId)
     {
-        return $this->userManager->findUserBy(array('facebookID' => $fbId));
+        return $this->userManager->findUserBy(array('facebookId' => $fbId));
     }
 
     public function loadUserByUsername($username)
     {           
         $user = $this->findUserByFbId($username);
-
+        
         try {
             $fbdata = $this->facebook->api('/me');
         } catch (FacebookApiException $e) {
             $fbdata = null;
         }
-        
-        if (!empty($fbdata)) {      //si on a des données recues de fb
+
+        if (!empty($fbdata)) {
+            //if (empty($user)) {
+            //    $user = $this->userManager->createUser();
+            //    $user->setEnabled(true);
+            //    $user->setPassword('');
+            //}
             
             $user_by_mail=$this->userManager->findUserBy(array('email'=>$fbdata['email']));
             
-            if(!empty($user_by_mail))   //on se sonnecte, avec fb, mais l'email est déjà présent dans la base (cas d'une personne déjà enregistrée auparavant
+            if(!empty($user_by_mail))   //on se connecte avec fb, mais l'email est déjà présent dans la base (cas d'une personne déjà enregistrée auparavant)
             {
                 //il va falloir mettre à jour ce user
                 $user=$user_by_mail;                
-            }            
-            elseif (empty($user)) {     //si on a pas de user trouvé correspondant déjà à un user fb dans notre base (l'id facebook=un username de notre base de données)
+            } elseif (empty($user)) 
+            {    //si on a pas de user trouvé correspondant déjà à un user fb dans notre base (l'id facebook=un username de notre base de données)
                 //on crée un nouveau user                
                 $user = $this->userManager->createUser();
                 $user->setEnabled(true);
@@ -64,7 +69,7 @@ class FacebookProvider implements UserProviderInterface
 
             // TODO use http://developers.facebook.com/docs/api/realtime
             $user->setFBData($fbdata);
-
+            
             if (count($this->validator->validate($user, 'Facebook'))) {
                 // TODO: the user was found obviously, but doesnt match our expectations, do something smart
                 throw new UsernameNotFoundException('The facebook user could not be stored');
@@ -80,7 +85,7 @@ class FacebookProvider implements UserProviderInterface
     }
 
     public function refreshUser(UserInterface $user)
-    {
+    {        
         if (!$this->supportsClass(get_class($user)) || !$user->getFacebookId()) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }

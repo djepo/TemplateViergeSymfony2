@@ -3,30 +3,24 @@ imports:
     - { resource: security.yml }
     - { resource: facebookParameters.ini }
     - { resource: websiteParameters.ini }
-    
-services:
-    my.facebook.user:
-        class: djepo\UserBundle\Security\User\Provider\FacebookProvider
-        arguments:
-            facebook: "@fos_facebook.api"
-            userManager: "@fos_user.user_manager"
-            validator: "@validator"
-            container: "@service_container"
 
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
-    secret:          %secret%    
+    secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
-    form:            true
-    csrf_protection: true
+    form:            ~
+    csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
-    trust_proxy_headers: false # Should Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
-    session:         ~        
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
 
 # Twig Configuration
 twig:
@@ -62,6 +56,9 @@ doctrine:
         user:     %database_user%
         password: %database_password%
         charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
@@ -80,10 +77,18 @@ fos_user:
     firewall_name: main
     user_class: djepo\UserBundle\Entity\User
     
-fos_facebook:
-      file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
-      alias:  facebook
-      app_id: %facebookAppId%
-      secret: %facebookAppSecret%
-      cookie: true
-      permissions: [email]    
+fos_facebook:    
+    alias:  facebook
+    app_id: %facebookAppId%
+    secret: %facebookAppSecret%
+    cookie: true
+    permissions: [email]
+    
+services:
+    my.facebook.user:
+        class: djepo\UserBundle\Security\User\Provider\FacebookProvider
+        arguments:
+            facebook: "@fos_facebook.api"
+            userManager: "@fos_user.user_manager"
+            validator: "@validator"
+            container: "@service_container"

@@ -1,8 +1,10 @@
 {% extends "djepoUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
-    {% if websiteUseFacebookLogin %}
-        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': facebookLocale}) }}
+
+{% if websiteUseFacebookLogin %}
+
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': 'fr-FR'}) }}
         <script>
             function goLogIn(){
                 window.location = "{{ path('_security_check') }}";
@@ -20,36 +22,34 @@
                 }
             }
         </script>
-    {% endif %}
+{% endif %}
 
-    {% if error %}
-        <div class="notice error">
-            <span class="icon medium" data-icon="X" style="display: inline-block;"></span>            
-            {{ error|trans({}, 'FOSUserBundle') }}
-            <a class="icon close" data-icon="x" href="#close" style="display: inline-block;"></a>
-        </div>
-    {% endif %}
+{% if error %}
+    <div class="notice error col_4">
+        <i class="icon-remove-sign icon-large"></i>
+        {{ error|trans({}, 'FOSUserBundle') }}
+        <a href="#close" class="icon-remove"></a>
+    </div>
+{% endif %}
 
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-        <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-        <input type="password" id="password" name="_password" />
+    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+    <input type="password" id="password" name="_password" required="required" />
 
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 
-        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />        
-    </form>
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+</form>
         
-    <div id="social_login">
+        <div id="social_login" class="clearfix">
         {% if websiteUseFacebookLogin %}        
-            {{ facebook_login_button({'autologoutlink': false}) }}
+            {{ facebook_login_button({'autologoutlink': false}) }}                
         {% endif %}
     </div>
-        
 {% endblock fos_user_content %}
-

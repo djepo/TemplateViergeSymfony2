@@ -6,11 +6,11 @@
 
     <!--
     <parameters>
-        <parameter key="co_user.example.class">co\UserBundle\Example</parameter>
+        <parameter key="djepo_user.example.class">djepo\UserBundle\Example</parameter>
     </parameters>
 
     <services>
-        <service id="co_user.example" class="%co_user.example.class%">
+        <service id="djepo_user.example" class="%djepo_user.example.class%">
             <argument type="service" id="service_id" />
             <argument>plain_value</argument>
             <argument>%parameter_name%</argument>
