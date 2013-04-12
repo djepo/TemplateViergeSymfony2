@@ -77,12 +77,18 @@ fos_user:
     firewall_name: main
     user_class: djepo\UserBundle\Entity\User
     
-fos_facebook:    
+fos_facebook:
     alias:  facebook
     app_id: %facebookAppId%
     secret: %facebookAppSecret%
     cookie: true
     permissions: [email]
+    
+jms_debugging:
+    # You can set this to true if you want to automatically retrieve help
+    # messages for public exceptions. If you leave this set to false, you have
+    # to click the "search" button manually each time.
+    auto_help: false
     
 services:
     my.facebook.user:

@@ -17,4 +17,21 @@
         </service>
     </services>
     -->
+    
+        <parameters>
+        <parameter key="my_user.facebook_provider.class">My\UserBundle\Security\User\Provider\FacebookProvider</parameter>
+    </parameters>
+ 
+    <services>
+        <!-- Facebook provider -->
+        <service id="my_user.facebook_provider" class="%my_user.facebook_provider.class%">
+            <argument type="service" id="fos_facebook.api" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument type="service" id="validator" />
+            <argument type="service" id="service_container" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service>
+    </services>
+    
+    
 </container>

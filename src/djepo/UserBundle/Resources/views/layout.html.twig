@@ -1,13 +1,16 @@
 {% extends "::base.html.twig" %}
 
-{% block body %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for key, message in messages %}
-            <div class="notice {{ type }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
+{% block body %}    
+        {% for type, messages in app.session.flashbag.all() %}
+            <div class="clearfix">
+                {% for key, message in messages %}
+                    <div class="notice {{ type }}">
+                        {{ message|trans({}, 'FOSUserBundle') }}
+                    </div>        
+                {% endfor %}
             </div>
         {% endfor %}
-    {% endfor %}
+    
 
     <div>
         {% block fos_user_content %}            

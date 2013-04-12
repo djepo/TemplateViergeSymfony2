@@ -25,10 +25,12 @@
 {% endif %}
 
 {% if error %}
-    <div class="notice error col_4">
-        <i class="icon-remove-sign icon-large"></i>
-        {{ error|trans({}, 'FOSUserBundle') }}
-        <a href="#close" class="icon-remove"></a>
+    <div class="clearfix">
+        <div class="notice error">
+            <i class="icon-remove-sign icon-large"></i>
+            {{ error|trans({}, 'FOSUserBundle') }}
+            <a href="#close" class="icon-remove"></a>
+        </div>
     </div>
 {% endif %}
 

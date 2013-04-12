@@ -29,8 +29,8 @@ fos_user_change_password:
     prefix: /profile
     
 _security_check:
-  pattern:  /fb/login_check
+  pattern:  /login_fb_check
 _security_logout:
-  pattern:  /fb/logout
-_facebook_secured:
-  pattern: /secured/
+  pattern:  /logout
+#_facebook_secured:
+#  pattern: /secured/

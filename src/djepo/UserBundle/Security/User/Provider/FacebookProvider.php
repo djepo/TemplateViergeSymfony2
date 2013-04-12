@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use \BaseFacebook;
 use \FacebookApiException;
+use Facebook;
 
 class FacebookProvider implements UserProviderInterface
 {
@@ -20,9 +21,12 @@ class FacebookProvider implements UserProviderInterface
 
     public function __construct(BaseFacebook $facebook, $userManager, $validator)
     {
-        $this->facebook = $facebook;
+        Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYPEER] = false;
+        Facebook::$CURL_OPTS[CURLOPT_SSL_VERIFYHOST] = 2;
+        
+        $this->facebook = $facebook;        
         $this->userManager = $userManager;
-        $this->validator = $validator;
+        $this->validator = $validator;    
     }
 
     public function supportsClass($class)
@@ -40,8 +44,8 @@ class FacebookProvider implements UserProviderInterface
         $user = $this->findUserByFbId($username);
         
         try {
-            $fbdata = $this->facebook->api('/me');
-        } catch (FacebookApiException $e) {
+            $fbdata = $this->facebook->api('/me');            
+        } catch (FacebookApiException $e) {            
             $fbdata = null;
         }
 
@@ -64,17 +68,17 @@ class FacebookProvider implements UserProviderInterface
                 $user = $this->userManager->createUser();
                 $user->setEnabled(true);
                 $user->setPassword('');
-                //$user->setAlgorithm('');                
+                //$user->setAlgorithm('');
             }
 
             // TODO use http://developers.facebook.com/docs/api/realtime
-            $user->setFBData($fbdata);
+            $user->setFBData($fbdata);            
             
             if (count($this->validator->validate($user, 'Facebook'))) {
-                // TODO: the user was found obviously, but doesnt match our expectations, do something smart
+                // TODO: the user was found obviously, but doesnt match our expectations, do something smart                
                 throw new UsernameNotFoundException('The facebook user could not be stored');
             }
-            $this->userManager->updateUser($user);
+            $this->userManager->updateUser($user);            
         }
 
         if (empty($user)) {
