@@ -104,8 +104,7 @@ class User extends BaseUser
         {
             //on met le facebook id a la place
             $this->setUsername($facebookID);
-        }
-        $this->salt = '';
+        }        
     }
 
     /**
