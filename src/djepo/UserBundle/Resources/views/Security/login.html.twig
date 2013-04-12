@@ -4,7 +4,7 @@
 
 {% if websiteUseFacebookLogin %}
 
-        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': 'fr-FR'}) }}
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': facebookLocale}) }}
         <script>
             function goLogIn(){
                 window.location = "{{ path('_security_check') }}";
